@@ -1,1 +1,875 @@
-# atomic-displacement
+# Vibrational Frequency Calculation Using Quantum ESPRESSO
+
+Python scripts for calculating vibrational frequencies using the **finite-displacement method** with **Quantum ESPRESSO (`pw.x`)**.
+
+The scripts automate the generation of displaced atomic structures, preparation of Quantum ESPRESSO input files, extraction of atomic forces from `pw.x` output, and construction of the numerical Hessian and vibrational frequencies.
+
+> **Note:** This workflow is different from the standard Quantum ESPRESSO `ph.x` phonon calculation. `ph.x` uses Density Functional Perturbation Theory (DFPT), whereas this repository uses explicit atomic displacements and numerical differentiation of forces.
+
+---
+
+## 1. Overview
+
+The workflow implemented in this repository is:
+
+```text
+                    Optimized structure
+                           │
+                           ▼
+                    displacement.py
+                           │
+                           ▼
+             Displaced QE input files
+                           │
+                           ▼
+                     pw.x calculations
+                           │
+                           ▼
+                    Atomic forces
+                           │
+                           ▼
+                     qe_to_vib.py
+                           │
+                           ▼
+                 Numerical Hessian
+                           │
+                           ▼
+                  Mass-weighted Hessian
+                           │
+                           ▼
+                 Vibrational frequencies
+```
+
+The method is based on numerical differentiation of the atomic forces.
+
+For a displacement along coordinate (j),
+
+
+$H_{ij} = -\frac{\partial F_i}{\partial x_j}$
+
+where $(H_{ij})$ is an element of the Hessian matrix and ($F_i$) is the force acting on coordinate ($i$).
+
+Using central finite differences,
+
+
+$H_{ij} \approx -\frac{F_i(x_j+\Delta x)-F_i(x_j-\Delta x)}{2\Delta x}$
+
+
+The resulting Hessian is mass-weighted and diagonalized to obtain the vibrational frequencies.
+
+---
+
+# 2. Requirements
+
+## 2.1 Python
+
+Python 3 is required.
+
+Check your Python version:
+
+```bash
+python --version
+```
+
+or:
+
+```bash
+python3 --version
+```
+
+Recommended:
+
+```text
+Python >= 3.9
+```
+
+---
+
+## 2.2 Quantum ESPRESSO
+
+Quantum ESPRESSO must be installed and accessible from the command line.
+
+The main executable required by this workflow is:
+
+```text
+pw.x
+```
+
+Check the installation:
+
+```bash
+which pw.x
+```
+
+and:
+
+```bash
+pw.x -h
+```
+
+The scripts do not require `ph.x` because the vibrational frequencies are obtained from finite differences of forces.
+
+For reference, Quantum ESPRESSO documents the `pw.x` input variables in its official input documentation.
+
+---
+
+# 3. Repository Structure
+
+
+
+```text
+qe-finite-displacement/
+│
+├── README.md
+
+│
+├── scripts/
+│   ├── displacement.py
+│   └── qe_to_vib.py
+│
+├── template/
+│   └── pw.in
+│
+├── examples/
+│   ├── molecule/
+│   │   ├── structure.in
+│   │   └── ...
+│   │
+│   └── ...
+│
+└── tests/
+```
+
+The main scripts are:
+
+```text
+generate_displacement.py
+calculate_frequency.py
+```
+
+---
+
+# 4. Calculation Workflow
+
+The calculation consists of four main steps:
+
+### Step 1
+
+Obtain a fully optimized structure.
+
+### Step 2
+
+Generate positive and negative atomic displacements.
+
+### Step 3
+
+Run `pw.x` for every displaced structure.
+
+### Step 4
+
+Extract forces and calculate the numerical Hessian and vibrational frequencies.
+
+---
+
+# 5. Step 1 — Optimize the Reference Structure
+
+Before generating displacements, the reference structure should be optimized.
+
+For example:
+
+```text
+calculation='relax'
+```
+
+or, when optimizing both atomic positions and lattice parameters:
+
+```text
+calculation='vc-relax'
+```
+
+A typical relaxation input may look like:
+
+```text
+&CONTROL
+    calculation = 'relax',
+    prefix      = 'system',
+    outdir      = './tmp/',
+    pseudo_dir  = './pseudo/',
+    tprnfor     = .true.,
+/
+
+&SYSTEM
+    ibrav       = 0,
+    nat         = 3,
+    ntyp        = 2,
+    ecutwfc     = 60.0,
+    ecutrho     = 480.0,
+/
+
+&ELECTRONS
+    conv_thr    = 1.0d-10,
+/
+
+&IONS
+/
+
+ATOMIC_SPECIES
+H  1.008   H.pbe-rrkjus.UPF
+O  15.999  O.pbe-rrkjus.UPF
+
+ATOMIC_POSITIONS angstrom
+O   ...
+H   ...
+H   ...
+
+K_POINTS gamma
+```
+
+For a relaxation, the force convergence criterion is controlled by `forc_conv_thr`. Quantum ESPRESSO defines this as the threshold for the maximum force component during ionic optimization.
+
+Run:
+
+```bash
+pw.x < relax.in > relax.out
+```
+
+After convergence, obtain the optimized geometry.
+
+---
+
+# 6. Step 2 — Generate Atomic Displacements
+
+The script `generate_displacement.py` generates the displaced structures required for the numerical Hessian.
+
+For each Cartesian coordinate, two structures are generated:
+
+```text
++Δx
+-Δx
+```
+
+For a system containing (N) atoms, there are (3N) Cartesian coordinates.
+
+Therefore, a conventional central-difference calculation requires:
+
+[
+2(3N)=6N
+]
+
+displaced calculations.
+
+For example, for a 10-atom system:
+
+```text
+3 × 10 = 30 coordinates
+
+30 × 2 = 60 displaced calculations
+```
+
+---
+
+# 7. Displacement Magnitude
+
+The displacement magnitude is specified in Å.
+
+For example:
+
+```text
+Δx = 0.01 Å
+```
+
+For atom (i), the generated structures may contain:
+
+```text
+x + 0.01 Å
+x - 0.01 Å
+```
+
+while all other coordinates remain unchanged.
+
+A typical command is:
+
+```bash
+python scripts/generate_displacement.py \
+    --input relaxed.in \
+    --displacement 0.01 \
+    --output displacements/
+```
+
+Check the available options with:
+
+```bash
+python scripts/generate_displacement.py --help
+```
+
+---
+
+# 8. Generated Directory Structure
+
+For example:
+
+```text
+displacements/
+├── disp_000/
+│   └── pw.in
+├── disp_001/
+│   └── pw.in
+├── disp_002/
+│   └── pw.in
+├── disp_003/
+│   └── pw.in
+└── ...
+```
+
+The naming convention should clearly identify:
+
+* atom index;
+* Cartesian direction;
+* positive/negative displacement.
+
+For example:
+
+```text
+atom001_xp
+atom001_xm
+atom001_yp
+atom001_ym
+atom001_zp
+atom001_zm
+```
+
+is preferable to ambiguous numbering when the number of calculations is large.
+
+---
+
+# 9. Quantum ESPRESSO Input Files
+
+Each displaced structure is converted into a `pw.x` input file.
+
+The important point is that **all electronic-structure parameters should remain identical between displaced structures**.
+
+These include:
+
+* exchange-correlation functional;
+* pseudopotentials;
+* plane-wave cutoff;
+* charge-density cutoff;
+* k-point mesh;
+* smearing parameters;
+* spin configuration;
+* DFT+U parameters;
+* van der Waals correction;
+* convergence criteria.
+
+Only the atomic coordinates should change.
+
+For example:
+
+```text
+disp_001/
+└── pw.in
+
+disp_002/
+└── pw.in
+
+disp_003/
+└── pw.in
+```
+
+---
+
+# 10. SCF vs Relaxation
+
+The displaced structures should normally be evaluated using:
+
+```text
+calculation='scf'
+```
+
+and **not** re-optimized.
+
+The purpose of the displacement is to evaluate the force at a specific displaced geometry.
+
+Therefore:
+
+```text
+Reference geometry
+       │
+       ├── +Δx → SCF → forces
+       │
+       └── -Δx → SCF → forces
+```
+
+Do not use:
+
+```text
+calculation='relax'
+```
+
+for the displaced structures unless there is a specific reason to do so.
+
+Otherwise, the imposed displacement would be removed by the geometry optimization.
+
+---
+
+# 11. Example Displacement Input
+
+A displaced calculation may look like:
+
+```text
+&CONTROL
+    calculation = 'scf',
+    prefix      = 'disp_001',
+    outdir      = './tmp/',
+    pseudo_dir  = './pseudo/',
+    tprnfor     = .true.,
+/
+
+&SYSTEM
+    ibrav       = 0,
+    nat         = 3,
+    ntyp        = 2,
+    ecutwfc     = 60.0,
+    ecutrho     = 480.0,
+/
+
+&ELECTRONS
+    conv_thr    = 1.0d-10,
+/
+
+ATOMIC_SPECIES
+H  1.008   H.pbe-rrkjus.UPF
+O  15.999  O.pbe-rrkjus.UPF
+
+ATOMIC_POSITIONS angstrom
+O   ...
+H   ...
+H   ...
+
+K_POINTS gamma
+```
+
+The `tprnfor` option requests force calculation in `pw.x`; it is also automatically enabled for certain ionic calculations such as `relax` and `md`.
+
+---
+
+# 12. Running the Displacement Calculations
+
+For a small system, calculations can be run sequentially:
+
+```bash
+pw.x < disp_000/pw.in > disp_000/pw.out
+pw.x < disp_001/pw.in > disp_001/pw.out
+pw.x < disp_002/pw.in > disp_002/pw.out
+```
+
+For a large system, an HPC job array is recommended.
+
+For example:
+
+```bash
+sbatch run_array.slurm
+```
+
+A job array can assign one displacement calculation to each array task.
+
+This is particularly useful because all displaced calculations are independent.
+
+---
+
+# 13. Checking Quantum ESPRESSO Output
+
+Before calculating frequencies, verify that every `pw.x` calculation completed successfully.
+
+A simple check is:
+
+```bash
+grep "JOB DONE" */pw.out
+```
+
+You should obtain one successful completion message for every displacement.
+
+For example:
+
+```text
+disp_000/pw.out: JOB DONE.
+disp_001/pw.out: JOB DONE.
+disp_002/pw.out: JOB DONE.
+...
+```
+
+Also check that forces are present:
+
+```bash
+grep -A ... "Forces acting on atoms" */pw.out
+```
+
+The exact extraction command depends on the format expected by the Python script.
+
+---
+
+# 14. Step 3 — Extract Forces
+
+`calculate_frequency.py` reads the force vectors from the Quantum ESPRESSO output files.
+
+For each displaced structure:
+
+```text
+disp_001/pw.out
+       │
+       ▼
+Force extraction
+       │
+       ▼
+Fx Fy Fz for every atom
+```
+
+For example:
+
+```text
+Atom 1    Fx    Fy    Fz
+Atom 2    Fx    Fy    Fz
+Atom 3    Fx    Fy    Fz
+...
+```
+
+The forces are then combined according to the displacement pattern.
+
+---
+
+# 15. Step 4 — Construct the Hessian
+
+For each Cartesian coordinate (j), calculate:
+
+[
+H_{ij}
+======
+
+-\frac{
+F_i^{+j}-F_i^{-j}
+}
+{2\Delta x_j}.
+]
+
+Here:
+
+* (F_i^{+j}) is the force on coordinate (i) after a positive displacement of coordinate (j);
+* (F_i^{-j}) is the force on coordinate (i) after a negative displacement of coordinate (j);
+* (\Delta x_j) is the displacement magnitude.
+
+The resulting matrix has dimensions:
+
+[
+3N \times 3N.
+]
+
+For a system containing 20 atoms:
+
+[
+60 \times 60
+]
+
+Hessian matrix.
+
+---
+
+# 16. Unit Conversion
+
+Quantum ESPRESSO reports atomic forces in atomic units.
+
+The frequency-analysis script must therefore perform the appropriate unit conversion before constructing the mass-weighted Hessian and converting the resulting eigenvalues to vibrational frequencies, typically reported in:
+
+```text
+cm^-1
+```
+
+The script should handle this conversion automatically.
+
+Users should therefore **not manually convert the forces** before supplying the QE output to the Python script.
+
+---
+
+# 17. Mass Weighting
+
+The Cartesian Hessian is transformed into a mass-weighted Hessian:
+
+[
+\mathbf{H}_{mw}
+===============
+
+\mathbf{M}^{-1/2}
+\mathbf{H}
+\mathbf{M}^{-1/2},
+]
+
+where (\mathbf{M}) is the diagonal atomic-mass matrix.
+
+The mass-weighted Hessian is then diagonalized:
+
+[
+\mathbf{H}_{mw}\mathbf{v}_k
+===========================
+
+\lambda_k\mathbf{v}_k.
+]
+
+The eigenvalues are converted into vibrational frequencies.
+
+---
+
+# 18. Calculating Frequencies
+
+After all QE calculations have finished:
+
+```bash
+python scripts/calculate_frequency.py \
+    --input displacements/
+```
+
+For more information:
+
+```bash
+python scripts/calculate_frequency.py --help
+```
+
+A typical output may be:
+
+```text
+========================================
+ Vibrational Frequency Calculation
+========================================
+
+Number of atoms       : 10
+Number of coordinates : 30
+Displacement          : 0.0100 Angstrom
+
+Reading QE forces...
+Constructing Hessian...
+Mass weighting...
+Diagonalizing Hessian...
+
+Vibrational frequencies
+----------------------------------------
+Mode          Frequency (cm-1)
+----------------------------------------
+1             -12.35
+2               8.21
+3              15.67
+4             124.32
+5             186.54
+...
+```
+
+---
+
+# 19. Imaginary Frequencies
+
+Negative frequencies correspond to imaginary vibrational frequencies.
+
+For example:
+
+```text
+Mode       Frequency
+---------------------
+1          -125.3
+2             32.5
+3             87.2
+```
+
+The first mode represents an imaginary frequency.
+
+For an optimized minimum, significant imaginary frequencies generally indicate that the structure is not a true minimum or that there are numerical/convergence problems.
+
+Small frequencies close to zero should be treated carefully because translational and rotational modes can be affected by numerical errors.
+
+---
+
+# 20. Translational and Rotational Modes
+
+For an isolated molecule, the lowest six modes correspond approximately to:
+
+```text
+3 translations
++
+3 rotations
+```
+
+and should ideally have frequencies close to:
+
+```text
+0 cm^-1
+```
+
+For a linear molecule, only five modes correspond to translation/rotation, leaving one additional rotational mode that is absent.
+
+In practice, these modes may appear as small positive or negative frequencies due to numerical errors.
+
+---
+
+# 21. Convergence Considerations
+
+The quality of a finite-difference Hessian depends strongly on the accuracy of the underlying QE force calculations.
+
+The following parameters should therefore be converged carefully:
+
+```text
+Plane-wave cutoff
+Charge-density cutoff
+k-point sampling
+SCF convergence threshold
+Smearing
+Pseudopotentials
+Displacement magnitude
+```
+
+In particular, the SCF convergence should generally be tighter than that used for routine total-energy calculations.
+
+For example:
+
+```text
+conv_thr = 1.0d-10
+```
+
+may be appropriate for a demanding calculation, although the optimal value depends on the system.
+
+---
+
+# 22. Displacement-Convergence Test
+
+The displacement magnitude should be tested.
+
+For example:
+
+```text
+0.005 Å
+0.010 Å
+0.020 Å
+```
+
+Run the complete frequency calculation for each value.
+
+A well-converged calculation should give similar frequencies:
+
+```text
+Mode     0.005 Å    0.010 Å    0.020 Å
+----------------------------------------
+1        125.2      125.4      125.3
+2        238.1      238.2      238.4
+3        412.7      412.8      412.9
+```
+
+Large changes indicate that the displacement may be too small, too large, or that the underlying force calculations are insufficiently converged.
+
+---
+
+# 23. HPC Workflow
+
+For large systems, the recommended workflow is:
+
+```text
+             optimized QE structure
+                       │
+                       ▼
+          generate_displacement.py
+                       │
+                       ▼
+               6N QE calculations
+                       │
+                       ▼
+                SLURM job array
+                       │
+                       ▼
+                 pw.x outputs
+                       │
+                       ▼
+             calculate_frequency.py
+                       │
+                       ▼
+               vibrational modes
+```
+
+Example:
+
+```bash
+python scripts/generate_displacement.py \
+    --input relaxed.in \
+    --displacement 0.01 \
+    --output displacements/
+
+sbatch run_array.slurm
+
+# After all jobs finish
+
+python scripts/calculate_frequency.py \
+    --input displacements/
+```
+
+---
+
+# 24. Troubleshooting
+
+## `pw.x` cannot be found
+
+Check:
+
+```bash
+which pw.x
+```
+
+If nothing is returned, load the Quantum ESPRESSO module or correct the `PATH`.
+
+For example:
+
+```bash
+module load quantum-espresso
+```
+
+---
+
+## A displacement calculation does not finish
+
+Check:
+
+```bash
+tail disp_001/pw.out
+```
+
+and look for:
+
+```text
+JOB DONE.
+```
+
+If it is absent, inspect the final part of the output for SCF or runtime errors.
+
+---
+
+## Missing forces
+
+Make sure the calculation produces forces.
+
+For example:
+
+```text
+tprnfor = .true.
+```
+
+is explicitly included in the `&CONTROL` section.
+
+---
+
+## Very large imaginary frequencies
+
+Check:
+
+1. Reference geometry optimization.
+2. SCF convergence.
+3. Cutoff convergence.
+4. k-point convergence.
+5. Displacement magnitude.
+6. Correct force extraction.
+7. Correct unit conversion.
+8. Atomic masses.
+
+---
+
