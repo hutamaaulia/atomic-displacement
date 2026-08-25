@@ -87,24 +87,11 @@ Python >= 3.9
 
 ## 2.2 Quantum ESPRESSO
 
-Quantum ESPRESSO must be installed and accessible from the command line.
 
 The main executable required by this workflow is:
 
 ```text
 pw.x
-```
-
-Check the installation:
-
-```bash
-which pw.x
-```
-
-and:
-
-```bash
-pw.x -h
 ```
 
 The scripts do not require `ph.x` because the vibrational frequencies are obtained from finite differences of forces.
@@ -143,8 +130,8 @@ qe-finite-displacement/
 The main scripts are:
 
 ```text
-generate_displacement.py
-calculate_frequency.py
+displace.py
+qe_to_vib.py
 ```
 
 ---
@@ -233,13 +220,41 @@ Run:
 pw.x < relax.in > relax.out
 ```
 
+
 After convergence, obtain the optimized geometry.
 
 ---
 
 # 6. Step 2 — Generate Atomic Displacements
 
-The script `generate_displacement.py` generates the displaced structures required for the numerical Hessian.
+The script `displace.py` generates the displaced structures required for the numerical Hessian.
+
+```bash
+python3 displace.py
+```
+
+The initial QE input containing optimized structure without displacement must be present in the same directory with the `displace.py` script. The geometry must be given in angstrom unit.
+
+```text
+ATOMIC_POSITIONS angstrom
+Zn   ...
+O    ...
+O    ...
+
+```
+ 
+Modify the `displace.py` script accordingly under `User settings`
+
+
+```text
+# =========================
+# User settings
+# =========================
+qe_input = "disp_000.in" # name of the initial QE input containing optimized structure without displacement
+disp = 0.02  # Displacement magnitude in Angstrom
+atoms_to_move = [54, 55] # index of moved atoms, the ordering must be consistent with QE input
+
+```
 
 For each Cartesian coordinate, two structures are generated:
 
@@ -248,7 +263,8 @@ For each Cartesian coordinate, two structures are generated:
 -Δx
 ```
 
-For a system containing (N) atoms, there are (3N) Cartesian coordinates.
+
+For a system containing N (moved) atoms, there are 3N Cartesian coordinates.
 
 Therefore, a conventional central-difference calculation requires:
 
@@ -258,7 +274,7 @@ Therefore, a conventional central-difference calculation requires:
 
 displaced calculations.
 
-For example, for a 10-atom system:
+For example, for a 10-(moved) atom(s):
 
 ```text
 3 × 10 = 30 coordinates
@@ -266,83 +282,33 @@ For example, for a 10-atom system:
 30 × 2 = 60 displaced calculations
 ```
 
----
-
-# 7. Displacement Magnitude
-
-The displacement magnitude is specified in Å.
-
-For example:
+For example :
 
 ```text
-Δx = 0.01 Å
+Δx = 0.02 Å
 ```
 
 For atom (i), the generated structures may contain:
 
 ```text
-x + 0.01 Å
-x - 0.01 Å
+x + 0.02 Å
+x - 0.02 Å
 ```
 
 while all other coordinates remain unchanged.
 
-A typical command is:
+There will be 6N generated QE input files with atomic displacement with the name formatting
 
-```bash
-python scripts/generate_displacement.py \
-    --input relaxed.in \
-    --displacement 0.01 \
-    --output displacements/
-```
-
-Check the available options with:
-
-```bash
-python scripts/generate_displacement.py --help
+```text
+disp_001_atom(movedatom1)_+1x.in
+disp_002_atom(movedatom1)_-1x.in
+...
+disp_6N_atom(movedatomN)_-1z.in
 ```
 
 ---
 
-# 8. Generated Directory Structure
-
-For example:
-
-```text
-displacements/
-├── disp_000/
-│   └── pw.in
-├── disp_001/
-│   └── pw.in
-├── disp_002/
-│   └── pw.in
-├── disp_003/
-│   └── pw.in
-└── ...
-```
-
-The naming convention should clearly identify:
-
-* atom index;
-* Cartesian direction;
-* positive/negative displacement.
-
-For example:
-
-```text
-atom001_xp
-atom001_xm
-atom001_yp
-atom001_ym
-atom001_zp
-atom001_zm
-```
-
-is preferable to ambiguous numbering when the number of calculations is large.
-
----
-
-# 9. Quantum ESPRESSO Input Files
+# 7. Quantum ESPRESSO Input Files
 
 Each displaced structure is converted into a `pw.x` input file.
 
@@ -363,23 +329,6 @@ These include:
 
 Only the atomic coordinates should change.
 
-For example:
-
-```text
-disp_001/
-└── pw.in
-
-disp_002/
-└── pw.in
-
-disp_003/
-└── pw.in
-```
-
----
-
-# 10. SCF vs Relaxation
-
 The displaced structures should normally be evaluated using:
 
 ```text
@@ -391,14 +340,6 @@ and **not** re-optimized.
 The purpose of the displacement is to evaluate the force at a specific displaced geometry.
 
 Therefore:
-
-```text
-Reference geometry
-       │
-       ├── +Δx → SCF → forces
-       │
-       └── -Δx → SCF → forces
-```
 
 Do not use:
 
@@ -412,7 +353,7 @@ Otherwise, the imposed displacement would be removed by the geometry optimizatio
 
 ---
 
-# 11. Example Displacement Input
+# 8. Example Displacement Input
 
 A displaced calculation may look like:
 
@@ -449,31 +390,18 @@ H   ...
 K_POINTS gamma
 ```
 
-The `tprnfor` option requests force calculation in `pw.x`; it is also automatically enabled for certain ionic calculations such as `relax` and `md`.
+The `tprnfor` option requests force calculation in `pw.x`
 
 ---
 
-# 12. Running the Displacement Calculations
+# 9. Running the Displacement Calculations
 
-For a small system, calculations can be run sequentially:
 
-```bash
-pw.x < disp_000/pw.in > disp_000/pw.out
-pw.x < disp_001/pw.in > disp_001/pw.out
-pw.x < disp_002/pw.in > disp_002/pw.out
-```
-
-For a large system, an HPC job array is recommended.
-
-For example:
 
 ```bash
-sbatch run_array.slurm
+pw.x < disp_001.in > disp_001.out
 ```
 
-A job array can assign one displacement calculation to each array task.
-
-This is particularly useful because all displaced calculations are independent.
 
 ---
 
