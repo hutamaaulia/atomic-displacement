@@ -123,7 +123,7 @@ For reference, Quantum ESPRESSO documents the `pw.x` input variables in its offi
 
 
 ```text
-qe-finite-displacement/
+qe-vib/
 │
 ├── README.md
 │
