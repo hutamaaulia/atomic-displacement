@@ -23,7 +23,7 @@ In particular, users should independently verify:
 * the numerical accuracy of the calculated forces and Hessian;
 * the presence and origin of imaginary frequencies;
 * the treatment of translational and rotational modes;
-* and the physical interpretation of the calculated vibrational frequencies.
+* and the physical interpretation of the calculated vibrational frequencies and thermodynamics correction.
 
 
 ---
@@ -135,7 +135,7 @@ qe-finite-displacement/
 │   └── qe_to_vib.py
 │
 ├── template/
-│   └── pw.in
+│   └── disp_000.in
 │
 ├── examples/
 │   ├── molecule/
@@ -284,13 +284,11 @@ For each Cartesian coordinate, two structures are generated:
 ```
 
 
-For a system containing N (moved) atoms, there are 3N Cartesian coordinates.
+For a system containing $N$ (moved) atoms, there are $3N$ Cartesian coordinates.
 
 Therefore, a conventional central-difference calculation requires:
 
-[
-2(3N)=6N
-]
+$2(3N)=6N$
 
 displaced calculations.
 
@@ -320,17 +318,15 @@ while all other coordinates remain unchanged.
 There will be 6N generated QE input files with atomic displacement with the name formatting
 
 ```text
-disp_001_atom(movedatom1)_+1x.in
-disp_002_atom(movedatom1)_-1x.in
+disp_001_atom(atoms_to_move[0])_+1x.in
+disp_002_atom(atoms_to_move[0])_-1x.in
 ...
-disp_6N_atom(movedatomN)_-1z.in
+disp_6N_atom(atoms_to_move[-1])_-1z.in
 ```
 
 ---
 
 # 7. Quantum ESPRESSO Input Files
-
-Each displaced structure is converted into a `pw.x` input file.
 
 The important point is that **all electronic-structure parameters should remain identical between displaced structures**.
 
@@ -416,196 +412,80 @@ The `tprnfor` option requests force calculation in `pw.x`
 
 # 9. Running the Displacement Calculations
 
-
+Run all displaced geometries
 
 ```bash
-pw.x < disp_001.in > disp_001.out
+pw.x < disp_001_atom(atoms_to_move[0])_+1x.in > disp_001_atom(atoms_to_move[0])_+1x.out
+...
+pw.x < disp_6N_atom(atoms_to_move[-1])_-1z.in > disp_6N_atom(atoms_to_move[-1])_-1z.out
 ```
 
 
 ---
 
-# 13. Checking Quantum ESPRESSO Output
+# 10. Checking Quantum ESPRESSO Output
 
 Before calculating frequencies, verify that every `pw.x` calculation completed successfully.
 
 A simple check is:
 
 ```bash
-grep "JOB DONE" */pw.out
+grep "JOB DONE" *.out
 ```
 
 You should obtain one successful completion message for every displacement.
 
-For example:
-
-```text
-disp_000/pw.out: JOB DONE.
-disp_001/pw.out: JOB DONE.
-disp_002/pw.out: JOB DONE.
-...
-```
-
 Also check that forces are present:
 
 ```bash
-grep -A ... "Forces acting on atoms" */pw.out
+grep "Forces acting on atoms" */pw.out
 ```
 
-The exact extraction command depends on the format expected by the Python script.
-
 ---
 
-# 14. Step 3 — Extract Forces
-
-`calculate_frequency.py` reads the force vectors from the Quantum ESPRESSO output files.
-
-For each displaced structure:
-
-```text
-disp_001/pw.out
-       │
-       ▼
-Force extraction
-       │
-       ▼
-Fx Fy Fz for every atom
-```
-
-For example:
-
-```text
-Atom 1    Fx    Fy    Fz
-Atom 2    Fx    Fy    Fz
-Atom 3    Fx    Fy    Fz
-...
-```
-
-The forces are then combined according to the displacement pattern.
-
----
-
-# 15. Step 4 — Construct the Hessian
-
-For each Cartesian coordinate (j), calculate:
-
-[
-H_{ij}
-======
-
--\frac{
-F_i^{+j}-F_i^{-j}
-}
-{2\Delta x_j}.
-]
-
-Here:
-
-* (F_i^{+j}) is the force on coordinate (i) after a positive displacement of coordinate (j);
-* (F_i^{-j}) is the force on coordinate (i) after a negative displacement of coordinate (j);
-* (\Delta x_j) is the displacement magnitude.
-
-The resulting matrix has dimensions:
-
-[
-3N \times 3N.
-]
-
-For a system containing 20 atoms:
-
-[
-60 \times 60
-]
-
-Hessian matrix.
-
----
-
-# 16. Unit Conversion
-
-Quantum ESPRESSO reports atomic forces in atomic units.
-
-The frequency-analysis script must therefore perform the appropriate unit conversion before constructing the mass-weighted Hessian and converting the resulting eigenvalues to vibrational frequencies, typically reported in:
-
-```text
-cm^-1
-```
-
-The script should handle this conversion automatically.
-
-Users should therefore **not manually convert the forces** before supplying the QE output to the Python script.
-
----
-
-# 17. Mass Weighting
-
-The Cartesian Hessian is transformed into a mass-weighted Hessian:
-
-[
-\mathbf{H}_{mw}
-===============
-
-\mathbf{M}^{-1/2}
-\mathbf{H}
-\mathbf{M}^{-1/2},
-]
-
-where (\mathbf{M}) is the diagonal atomic-mass matrix.
-
-The mass-weighted Hessian is then diagonalized:
-
-[
-\mathbf{H}_{mw}\mathbf{v}_k
-===========================
-
-\lambda_k\mathbf{v}_k.
-]
-
-The eigenvalues are converted into vibrational frequencies.
-
----
-
-# 18. Calculating Frequencies
+# 11. Calculating Frequencies and Thermodynamics Correction
 
 After all QE calculations have finished:
 
-```bash
-python scripts/calculate_frequency.py \
-    --input displacements/
+Modify the `qe_to_vib.py` script accordingly under `User input`
+
+Example:
+
+```text
+disp_ang = 0.02 # displaced magnitude. Must be consistent with the displaced calculations. Unit in angstrom
+nat = 56 # Total number of atoms 
+ads_atoms = [54, 55, 56] Displaced atom line. The order must be consistent with the order in QE input
+moved_atoms = [N, H, H] # Type of displaced atoms. The order must be consistent with the order in QE input
+T = 298.15  # Temperature in K
+P = 1.0 # Pressure in atm
+freq_cutoff_cm = 50.0   # Cutoff frequency. All positive frequencies below cutoff will be replaced by the cutoff value for thermodynamic corrections. Unit in cm^-1
+
 ```
-
-For more information:
+Run the script
 
 ```bash
-python scripts/calculate_frequency.py --help
+python qe_to_vib.py
 ```
 
 A typical output may be:
 
 ```text
-========================================
- Vibrational Frequency Calculation
-========================================
+Vibrational frequencies (cm^-1):
+Mode  1:      38.21 cm^-1
+Mode  2:      52.81 cm^-1
+Mode  3:     247.11 cm^-1
+Mode  4:     289.71 cm^-1
+Mode  5:     474.01 cm^-1
+Mode  6:     579.86 cm^-1
+Mode  7:    1470.47 cm^-1
+Mode  8:    3431.09 cm^-1
+Mode  9:    3535.60 cm^-1
 
-Number of atoms       : 10
-Number of coordinates : 30
-Displacement          : 0.0100 Angstrom
+ZPE               = 0.628021 eV
+E_vib(298.15 K)      = 0.081867 eV
+S_vib(298.15 K)      = 6.061751e-04 eV/K
+T*S_vib(298.15 K)    = 0.180731 eV
 
-Reading QE forces...
-Constructing Hessian...
-Mass weighting...
-Diagonalizing Hessian...
-
-Vibrational frequencies
-----------------------------------------
-Mode          Frequency (cm-1)
-----------------------------------------
-1             -12.35
-2               8.21
-3              15.67
-4             124.32
-5             186.54
-...
 ```
 
 ---
