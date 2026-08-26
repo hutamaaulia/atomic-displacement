@@ -36,7 +36,7 @@ The workflow implemented in this repository is:
                     Optimized structure
                            │
                            ▼
-                    displacement.py
+                        displace.py
                            │
                            ▼
              Displaced QE input files
