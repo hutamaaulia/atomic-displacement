@@ -447,7 +447,7 @@ ads_atoms = [54, 55, 56] Displaced atom line. The order must be consistent with 
 moved_atoms = [N, H, H] # Type of displaced atoms. The order must be consistent with the order in QE input
 T = 298.15  # Temperature in K
 P = 1.0 # Pressure in atm
-freq_cutoff_cm = 50.0   # Cutoff frequency. All positive frequencies below cutoff will be replaced by the cutoff value for thermodynamic corrections. Unit in cm^-1
+freq_cutoff_cm = 50.0   # Cutoff frequency. All positive frequencies below cutoff will be replaced by the cutoff value for entropy calculations. Unit in cm^-1
 
 ```
 Run the script
