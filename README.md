@@ -6,7 +6,7 @@ The scripts automate the generation of displaced atomic structures, preparation 
 
 > **Note:** This workflow is different from the standard Quantum ESPRESSO `ph.x` phonon calculation. `ph.x` uses Density Functional Perturbation Theory (DFPT), whereas this repository uses explicit atomic displacements and numerical differentiation of forces.
 
-> **Disclaimer**
+ **Disclaimer**
 
 This manual focuses on the **technical use of the Python scripts and their integration with Quantum ESPRESSO**. It does not provide a comprehensive discussion of the scientific principles underlying vibrational frequency calculations, finite-displacement methods, density functional theory (DFT), or the interpretation of calculated results.
 
