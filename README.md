@@ -67,7 +67,7 @@ For a displacement along coordinate (j),
 
 $H_{ij} = -\frac{\partial F_i}{\partial x_j}$
 
-where $(H_{ij})$ is an element of the Hessian matrix and ($F_i$) is the force acting on coordinate ($i$).
+where $H_{ij}$ is an element of the Hessian matrix and $F_i$ is the force acting on coordinate $i$.
 
 Using central finite differences,
 
@@ -75,7 +75,7 @@ Using central finite differences,
 $H_{ij} \approx -\frac{F_i(x_j+\Delta x)-F_i(x_j-\Delta x)}{2\Delta x}$
 
 
-The resulting Hessian is mass-weighted and diagonalized to obtain the vibrational frequencies.
+The resulting Hessian is mass-weighted and diagonalized to obtain the vibrational frequencies and thermodynamics corrections.
 
 ---
 
@@ -164,7 +164,7 @@ Run `pw.x` for every displaced structure.
 
 ### Step 4
 
-Extract forces and calculate the numerical Hessian and vibrational frequencies.
+Extract forces and calculate the numerical Hessian, vibrational frequencies and thermodynamics correction.
 
 ---
 
@@ -272,7 +272,6 @@ For each Cartesian coordinate, two structures are generated:
 +Δx
 -Δx
 ```
-
 
 For a system containing $N$ (moved) atoms, there are $3N$ Cartesian coordinates.
 
@@ -428,7 +427,7 @@ You should obtain one successful completion message for every displacement.
 Also check that forces are present:
 
 ```bash
-grep "Forces acting on atoms" */pw.out
+grep "Forces acting on atoms" *.out
 ```
 
 ---
@@ -479,4 +478,31 @@ T*S_vib(298.15 K)    = 0.180731 eV
 ```
 
 ---
+
+# 12. Thermodynamics Correction
+
+Please note that these scripts only treats the vibrational motions. The translational and rotational contributions to the thermodynamics corrections, if any, must be handled carefully.
+
+Here are the definition of the thermodynamics corrections:
+
+The zero-point vibrational energy is given by
+
+$ZPE=\frac{1}{2}\sum_i h\nu_i$
+
+The vibrational energy is given by
+
+$E_{\mathrm{vib}}=\sum_i\left[\frac{h\nu_i}{\exp\left(\frac{h\nu_i}{k_{\mathrm{B}}T}\right)-1}\right]$
+
+The vibrational entropy is given by
+
+$S_{\mathrm{vib}}=k_{\mathrm{B}}\sum_i\left[\frac{x_i}{e^{x_i}-1}-\ln\left(1-e^{-x_i}\right)\right]$
+
+where
+
+$x_i=\frac{h\nu_i}{k_{\mathrm{B}}T}$.
+
+
+where $h$ is the Planck constant, $k_{\mathrm{B}}$ is the Boltzmann constant, $\nu_i$ is the vibrational frequency, and $T$ is the temperature.
+
+
 
