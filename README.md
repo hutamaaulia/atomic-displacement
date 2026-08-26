@@ -1,8 +1,8 @@
-# Vibrational Frequency Calculation Using Quantum ESPRESSO
+# Vibrational Frequency and Thermodynamics Calculations Using Quantum ESPRESSO
 
 Python scripts for calculating vibrational frequencies using the **finite-displacement method** with **Quantum ESPRESSO (`pw.x`)**.
 
-The scripts automate the generation of displaced atomic structures, preparation of Quantum ESPRESSO input files, extraction of atomic forces from `pw.x` output, and construction of the numerical Hessian and vibrational frequencies.
+The scripts automate the generation of displaced atomic structures, preparation of Quantum ESPRESSO input files, extraction of atomic forces from `pw.x` output, and construction of the numerical Hessian, vibrational frequencies and thermodynamics corrections.
 
 > **Note:** This workflow is different from the standard Quantum ESPRESSO `ph.x` phonon calculation. `ph.x` uses Density Functional Perturbation Theory (DFPT), whereas this repository uses explicit atomic displacements and numerical differentiation of forces.
 
@@ -57,7 +57,7 @@ The workflow implemented in this repository is:
                   Mass-weighted Hessian
                            │
                            ▼
-                 Vibrational frequencies
+                 Vibrational frequencies and thermodynamics corrections
 ```
 
 The method is based on numerical differentiation of the atomic forces.
@@ -81,7 +81,7 @@ The resulting Hessian is mass-weighted and diagonalized to obtain the vibrationa
 
 # 2. Requirements
 
-## 2.1 Python
+## 2.1 Python with NumPy
 
 Python 3 is required.
 
@@ -114,8 +114,6 @@ The main executable required by this workflow is:
 pw.x
 ```
 
-The scripts do not require `ph.x` because the vibrational frequencies are obtained from finite differences of forces.
-
 For reference, Quantum ESPRESSO documents the `pw.x` input variables in its official input documentation.
 
 ---
@@ -128,23 +126,15 @@ For reference, Quantum ESPRESSO documents the `pw.x` input variables in its offi
 qe-finite-displacement/
 │
 ├── README.md
-
 │
 ├── scripts/
 │   ├── displacement.py
 │   └── qe_to_vib.py
 │
-├── template/
-│   └── disp_000.in
-│
-├── examples/
-│   ├── molecule/
-│   │   ├── structure.in
-│   │   └── ...
-│   │
-│   └── ...
-│
-└── tests/
+└── examples/
+    ├── molecule-H2/
+    └── adsorbed-HNO3/
+
 ```
 
 The main scripts are:
