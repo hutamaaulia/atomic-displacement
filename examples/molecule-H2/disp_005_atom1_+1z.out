@@ -1,0 +1,611 @@
+[1779853005.932912] [trembesi41:2001899:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.147418] [trembesi41:2001915:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.166580] [trembesi41:2001932:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.182151] [trembesi41:2001891:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.188905] [trembesi41:2001888:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.192942] [trembesi41:2001978:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.194732] [trembesi41:2001956:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.222110] [trembesi41:2001890:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.225843] [trembesi41:2001997:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.236708] [trembesi41:2002006:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.246618] [trembesi41:2001889:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.255446] [trembesi41:2002049:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.281126] [trembesi41:2001921:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.282839] [trembesi41:2001926:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.282973] [trembesi41:2001995:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.289839] [trembesi41:2001937:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.322841] [trembesi41:2002042:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.325368] [trembesi41:2001912:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.331385] [trembesi41:2001967:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.358666] [trembesi41:2001929:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.384456] [trembesi41:2002028:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.424570] [trembesi41:2002030:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.427797] [trembesi41:2002038:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.428935] [trembesi41:2001893:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.439835] [trembesi41:2002025:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.444187] [trembesi41:2001945:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.458851] [trembesi41:2001904:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.458870] [trembesi41:2001898:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.465840] [trembesi41:2001895:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.466786] [trembesi41:2002008:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.469899] [trembesi41:2001976:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.472552] [trembesi41:2002000:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.479768] [trembesi41:2001896:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.480177] [trembesi41:2001987:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.480926] [trembesi41:2001952:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.487706] [trembesi41:2002036:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.487772] [trembesi41:2001992:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.488269] [trembesi41:2001989:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.493809] [trembesi41:2001918:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.502776] [trembesi41:2001972:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.517728] [trembesi41:2001897:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.532585] [trembesi41:2002002:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.541962] [trembesi41:2001903:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.548544] [trembesi41:2001986:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.548831] [trembesi41:2001948:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.548919] [trembesi41:2001906:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.551423] [trembesi41:2001923:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.552390] [trembesi41:2001916:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.554497] [trembesi41:2001981:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.555541] [trembesi41:2002019:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.558628] [trembesi41:2001941:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.561180] [trembesi41:2001913:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.563692] [trembesi41:2001894:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.567964] [trembesi41:2001907:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.568947] [trembesi41:2002017:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.569903] [trembesi41:2001993:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.571979] [trembesi41:2001892:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.574078] [trembesi41:2001909:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.574465] [trembesi41:2001900:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.575532] [trembesi41:2002012:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.576141] [trembesi41:2001962:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.576392] [trembesi41:2002046:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.576911] [trembesi41:2001901:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853006.577020] [trembesi41:2001960:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359445] [trembesi41:2001894:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359459] [trembesi41:2001960:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359536] [trembesi41:2001899:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359596] [trembesi41:2001891:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359573] [trembesi41:2001890:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359727] [trembesi41:2001921:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359718] [trembesi41:2001889:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359793] [trembesi41:2001995:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359807] [trembesi41:2002030:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359796] [trembesi41:2001956:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359868] [trembesi41:2001888:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359932] [trembesi41:2001915:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359934] [trembesi41:2001997:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359955] [trembesi41:2001912:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359997] [trembesi41:2001932:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.359997] [trembesi41:2001967:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360020] [trembesi41:2002006:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360031] [trembesi41:2001926:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360042] [trembesi41:2002038:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360070] [trembesi41:2002042:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360044] [trembesi41:2002049:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360094] [trembesi41:2001978:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360093] [trembesi41:2001904:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360156] [trembesi41:2002025:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360201] [trembesi41:2002028:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360206] [trembesi41:2001952:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360199] [trembesi41:2002000:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360225] [trembesi41:2001893:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360255] [trembesi41:2001898:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360249] [trembesi41:2001906:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360241] [trembesi41:2001986:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360259] [trembesi41:2002036:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360311] [trembesi41:2001913:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360290] [trembesi41:2001989:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360308] [trembesi41:2001992:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360291] [trembesi41:2001896:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360305] [trembesi41:2001987:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360333] [trembesi41:2001981:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360323] [trembesi41:2001897:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360354] [trembesi41:2001993:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360350] [trembesi41:2001972:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360333] [trembesi41:2001909:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360357] [trembesi41:2001892:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360357] [trembesi41:2001923:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360353] [trembesi41:2002008:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360336] [trembesi41:2001895:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360345] [trembesi41:2001900:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360367] [trembesi41:2001929:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360424] [trembesi41:2002046:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360403] [trembesi41:2001945:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360388] [trembesi41:2002002:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360414] [trembesi41:2001948:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360404] [trembesi41:2001941:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360419] [trembesi41:2002012:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360385] [trembesi41:2001901:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360451] [trembesi41:2002019:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360398] [trembesi41:2001918:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360424] [trembesi41:2001903:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360453] [trembesi41:2001916:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360385] [trembesi41:2002017:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360385] [trembesi41:2001976:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360392] [trembesi41:2001937:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360411] [trembesi41:2001907:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+[1779853007.360422] [trembesi41:2001962:0]     ucp_context.c:1969 UCX  WARN  UCP API version is incompatible: required >= 1.15, actual 1.14.0 (loaded from /opt/ohpc/pub/mpi/ucx-ohpc/1.14.0/lib/libucp.so.0)
+
+     Program PWSCF v.7.2 starts on 27May2026 at 10:36:47 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI), running on    64 processors
+
+     MPI processes distributed on     1 nodes
+     228842 MiB available memory on the printing compute node when the environment starts
+
+     Reading input from disp_005_atom1_+1z.in
+
+     Current dimensions of program PWSCF are:
+     Max number of different atomic species (ntypx) = 10
+     Max number of k-points (npk) =  40000
+     Max angular momentum in pseudopotentials (lmaxx) =  4
+     file H.pbesol-kjpaw_psl.0.1.UPF: wavefunction(s)  1S renormalized
+
+     gamma-point specific algorithms are used
+     Message from routine setup:
+     using ibrav=0 with symmetry is DISCOURAGED, use correct ibrav instead
+
+     R & G space division:  proc/nbgrp/npool/nimage =      64
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min         567     284     69                81548    28832    3594
+     Max         570     286     72                81558    28844    3612
+     Sum       36381   18197   4537              5219483  1845573  230389
+
+     Using Slab Decomposition
+
+
+
+     bravais-lattice index     =            0
+     lattice parameter (alat)  =      37.7945  a.u.
+     unit-cell volume          =   53986.6760 (a.u.)^3
+     number of atoms/cell      =            2
+     number of atomic types    =            1
+     number of electrons       =         2.00 (up:   1.00, down:   1.00)
+     number of Kohn-Sham states=            1
+     kinetic-energy cutoff     =      40.0000  Ry
+     charge density cutoff     =     320.0000  Ry
+     scf convergence threshold =      1.0E-10
+     mixing beta               =       0.3000
+     number of iterations used =            8  local-TF  mixing
+     Exchange-correlation= SLA  PW   PSX  PSC
+                           (   1   4  10   8   0   0   0)
+
+     celldm(1)=  37.794522  celldm(2)=   0.000000  celldm(3)=   0.000000
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (   1.000000   0.000000   0.000000 )  
+               a(2) = (   0.000000   1.000000   0.000000 )  
+               a(3) = (   0.000000   0.000000   1.000000 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.000000  0.000000  0.000000 )  
+               b(2) = (  0.000000  1.000000  0.000000 )  
+               b(3) = (  0.000000  0.000000  1.000000 )  
+
+
+     PseudoPot. # 1 for H  read from file:
+     /mgpfs/home/lala002/pseudo/H.pbesol-kjpaw_psl.0.1.UPF
+     MD5 check sum: 27a6b98f1514c59d399e798f1258b8b7
+     Pseudo is Projector augmented-wave, Zval =  1.0
+     Generated using "atomic" code by A. Dal Corso  v.5.0.2 svn rev. 9415
+     Shape of augmentation charge: PSQ
+     Using radial grid of  929 points,  2 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+     Q(r) pseudized with 0 coefficients 
+
+
+     atomic species   valence    mass     pseudopotential
+        H              1.00     1.00794     H ( 1.00)
+
+     Starting magnetic structure 
+     atomic species   magnetization
+        H            0.000
+
+      2 Sym. Ops. (no inversion) found
+
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1           H   tau(   1) = (   0.0000000   0.0000000   0.0010000  )
+         2           H   tau(   2) = (   0.0380000   0.0000000   0.0000000  )
+
+     --------------------------------------------
+     DFT-D3 Dispersion Correction (3-body terms):
+     --------------------------------------------
+       Reference C6 values for interpolation: 
+
+         atom   Coordination number   C6
+         H          0.912             6.05
+         H          0.000            15.18
+
+       Values used:
+
+         atom   Coordination number  R0_AB[au]  C6      C8
+         H          0.876            2.062      6.36     76.91
+         H          0.876            2.062      6.36     76.91
+
+         Molecular C6 ( Ry / a.u.^6 ) =        25.45
+
+
+     number of k points=     1
+                       cart. coord. in units 2pi/alat
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   1.0000000
+
+     Dense  grid:  2609742 G-vectors     FFT dimensions: ( 216, 216, 216)
+
+     Smooth grid:   922787 G-vectors     FFT dimensions: ( 160, 160, 160)
+
+     Estimated max dynamical RAM per process >      66.75 MB
+
+     Estimated total dynamical RAM >       4.17 GB
+     Generating pointlists ...
+     new r_m :   0.0157 (alat units)  0.5926 (a.u.) for type    1
+
+     Initial potential from superposition of free atoms
+
+     starting charge       2.0000, renormalised to       2.0000
+
+     negative rho (up, down):  8.197E-05 8.197E-05
+     Starting wfcs are    2 randomized atomic wfcs
+     Checking if some PAW data can be deallocated... 
+
+     total cpu time spent up to now is        2.3 secs
+
+     Self-consistent Calculation
+
+     iteration #  1     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  1.00E-02,  avg # of iterations =  2.0
+
+     negative rho (up, down):  1.326E-08 1.326E-08
+
+     total cpu time spent up to now is        7.5 secs
+
+     total energy              =      -2.32704340 Ry
+     estimated scf accuracy    <       0.11292467 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration #  2     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  5.65E-03,  avg # of iterations =  1.0
+
+     negative rho (up, down):  3.477E-06 3.478E-06
+
+     total cpu time spent up to now is       15.7 secs
+
+     total energy              =      -2.28864450 Ry
+     estimated scf accuracy    <       0.07237710 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration #  3     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  3.62E-03,  avg # of iterations =  1.0
+
+     negative rho (up, down):  2.127E-03 2.127E-03
+
+     total cpu time spent up to now is       21.6 secs
+
+     total energy              =      -2.29725385 Ry
+     estimated scf accuracy    <       0.00492625 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration #  4     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  2.46E-04,  avg # of iterations =  1.0
+
+     negative rho (up, down):  3.037E-03 3.038E-03
+
+     total cpu time spent up to now is       30.4 secs
+
+     total energy              =      -2.29619994 Ry
+     estimated scf accuracy    <       0.00807465 Ry
+
+     total magnetization       =    -0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration #  5     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  2.46E-04,  avg # of iterations =  1.0
+
+     negative rho (up, down):  1.280E-02 1.280E-02
+
+     total cpu time spent up to now is       35.7 secs
+
+     total energy              =      -2.29374560 Ry
+     estimated scf accuracy    <       0.00518943 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration #  6     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  2.46E-04,  avg # of iterations =  2.0
+
+     negative rho (up, down):  1.601E-02 1.601E-02
+
+     total cpu time spent up to now is       41.1 secs
+
+     total energy              =      -2.29449976 Ry
+     estimated scf accuracy    <       0.00013500 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration #  7     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  6.75E-06,  avg # of iterations =  2.0
+
+     negative rho (up, down):  4.965E-03 4.965E-03
+
+     total cpu time spent up to now is       49.8 secs
+
+     total energy              =      -2.29423589 Ry
+     estimated scf accuracy    <       0.00013510 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration #  8     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  6.75E-06,  avg # of iterations =  2.0
+
+     negative rho (up, down):  1.572E-03 1.572E-03
+
+     total cpu time spent up to now is       54.6 secs
+
+     total energy              =      -2.29436930 Ry
+     estimated scf accuracy    <       0.00004000 Ry
+
+     total magnetization       =    -0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration #  9     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  2.00E-06,  avg # of iterations =  1.0
+
+     negative rho (up, down):  7.746E-04 7.746E-04
+
+     total cpu time spent up to now is       61.4 secs
+
+     total energy              =      -2.29436300 Ry
+     estimated scf accuracy    <       0.00002763 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration # 10     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  1.38E-06,  avg # of iterations =  2.0
+
+     negative rho (up, down):  1.643E-04 1.643E-04
+
+     total cpu time spent up to now is       68.9 secs
+
+     total energy              =      -2.29436873 Ry
+     estimated scf accuracy    <       0.00000178 Ry
+
+     total magnetization       =    -0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration # 11     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  8.91E-08,  avg # of iterations =  2.0
+
+     negative rho (up, down):  1.348E-04 1.348E-04
+
+     total cpu time spent up to now is       75.8 secs
+
+     total energy              =      -2.29436914 Ry
+     estimated scf accuracy    <       0.00000006 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration # 12     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  3.15E-09,  avg # of iterations =  1.0
+
+     negative rho (up, down):  1.099E-04 1.099E-04
+
+     total cpu time spent up to now is       84.2 secs
+
+     total energy              =      -2.29436940 Ry
+     estimated scf accuracy    <          1.7E-09 Ry
+
+     total magnetization       =    -0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration # 13     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  8.36E-11,  avg # of iterations =  2.0
+
+     negative rho (up, down):  1.093E-04 1.093E-04
+
+     total cpu time spent up to now is       90.6 secs
+
+     total energy              =      -2.29436942 Ry
+     estimated scf accuracy    <          1.4E-10 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     iteration # 14     ecut=    40.00 Ry     beta= 0.30
+     Davidson diagonalization with overlap
+     ethr =  7.17E-12,  avg # of iterations =  2.0
+
+     negative rho (up, down):  1.086E-04 1.086E-04
+
+     Magnetic moment per site  (integrated on atomic sphere of radius R)
+     atom   1 (R=0.016)  charge=  0.2118  magn= -0.0000
+     atom   2 (R=0.016)  charge=  0.2125  magn=  0.0000
+
+     total cpu time spent up to now is       91.1 secs
+
+     End of self-consistent calculation
+
+ ------ SPIN UP ------------
+
+
+          k = 0.0000 0.0000 0.0000 (115195 PWs)   bands (ev):
+
+   -10.1314
+
+ ------ SPIN DOWN ----------
+
+
+          k = 0.0000 0.0000 0.0000 (115195 PWs)   bands (ev):
+
+   -10.1314
+
+     highest occupied level (ev):   -10.1314
+
+!    total energy              =      -2.29436944 Ry
+     total all-electron energy =        -2.294501 Ry
+     estimated scf accuracy    <          3.5E-12 Ry
+
+     The total energy is the sum of the following terms:
+     one-electron contribution =      -4.35068411 Ry
+     hartree contribution      =       2.28710857 Ry
+     xc contribution           =      -1.32265486 Ry
+     ewald contribution        =       1.09196352 Ry
+     DFT-D3 Dispersion         =      -0.00004778 Ry
+     one-center paw contrib.   =      -0.00005478 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     0.00 Bohr mag/cell
+
+     charge density inside the Wigner-Seitz cell:    2.00000000
+
+     reference position (x0):         0.71809593    0.00000000    0.01889726 bohr
+
+     Dipole moments (with respect to x0):
+     Elect  -0.0000   0.0000  -0.0000 au (Ha),  -0.0000   0.0000  -0.0000 Debye
+     Ionic   0.0000   0.0000   0.0000 au (Ha),   0.0000   0.0000   0.0000 Debye
+     Total  -0.0000   0.0000  -0.0000 au (Ha),  -0.0000   0.0000  -0.0000 Debye
+
+     Electrons quadrupole moment         -5.40260306 a.u. (Ha)
+          Ions quadrupole moment          1.03203773 a.u. (Ha)
+         Total quadrupole moment         -4.37056533 a.u. (Ha)
+
+     *********    MAKOV-PAYNE CORRECTION    *********
+
+     Makov-Payne correction with Madelung constant =   2.8373
+
+     Makov-Payne correction     0.00000000 Ry =  0.000 eV (1st order, 1/a0)
+                                0.00000000 Ry =  0.000 eV (2nd order, 1/a0^3)
+                                0.00000000 Ry =  0.000 eV (total)
+
+!    Total+Makov-Payne energy  =      -2.29436944 Ry
+     Corrected vacuum level    =       0.00461665 eV
+
+     convergence has been achieved in  14 iterations
+
+     Forces acting on atoms (cartesian axes, Ry/au):
+
+     atom    1 type  1   force =     0.00126671    0.00000000   -0.00003196
+     atom    2 type  1   force =    -0.00126671    0.00000000    0.00003196
+     The non-local contrib.  to forces
+     atom    1 type  1   force =     0.06571339    0.00000000   -0.00172993
+     atom    2 type  1   force =    -0.06571323    0.00000000    0.00172993
+     The ionic contribution  to forces
+     atom    1 type  1   force =    -0.96839766    0.00000000    0.02548421
+     atom    2 type  1   force =     0.96839766   -0.00000000   -0.02548421
+     The local contribution  to forces
+     atom    1 type  1   force =     0.90397314    0.00000000   -0.02378685
+     atom    2 type  1   force =    -0.90397328    0.00000000    0.02378686
+     The core correction contribution to forces
+     atom    1 type  1   force =     0.00000000    0.00000000    0.00000000
+     atom    2 type  1   force =     0.00000000    0.00000000    0.00000000
+     The Hubbard contrib.    to forces
+     atom    1 type  1   force =     0.00000000    0.00000000    0.00000000
+     atom    2 type  1   force =     0.00000000    0.00000000    0.00000000
+     The SCF correction term to forces
+     atom    1 type  1   force =     0.00000009   -0.00000000   -0.00000000
+     atom    2 type  1   force =    -0.00000002    0.00000000   -0.00000006
+
+     DFT-D3 dispersion contribution to forces:
+     atom    1 type  1   force =    -0.00002221    0.00000000    0.00000058
+     atom    2 type  1   force =     0.00002221   -0.00000000   -0.00000058
+
+     Total force =     0.001792     Total SCF correction =     0.000000
+
+     Writing all to output data dir ./H2.save/
+
+     init_run     :      2.02s CPU      2.22s WALL (       1 calls)
+     electrons    :     80.34s CPU     89.15s WALL (       1 calls)
+     forces       :      0.30s CPU      0.37s WALL (       1 calls)
+     force_dftd3  :      0.00s CPU      0.00s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :      0.02s CPU      0.06s WALL (       1 calls)
+     potinit      :      0.66s CPU      0.77s WALL (       1 calls)
+     hinit0       :      0.10s CPU      0.12s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :      0.38s CPU      0.41s WALL (      14 calls)
+     sum_band     :      0.51s CPU      0.56s WALL (      14 calls)
+     v_of_rho     :      5.94s CPU      6.48s WALL (      15 calls)
+     newd         :      0.65s CPU      0.69s WALL (      15 calls)
+     PAW_pot      :      0.08s CPU      0.08s WALL (      15 calls)
+     mix_rho      :     72.16s CPU     80.14s WALL (      14 calls)
+     energy_dftd3 :      0.00s CPU      0.00s WALL (       1 calls)
+
+     Called by c_bands:
+     init_us_2    :      0.01s CPU      0.01s WALL (      60 calls)
+     init_us_2:cp :      0.01s CPU      0.01s WALL (      60 calls)
+     regterg      :      0.37s CPU      0.40s WALL (      28 calls)
+
+     Called by *egterg:
+     rdiaghg      :      0.00s CPU      0.00s WALL (      72 calls)
+     h_psi        :      0.37s CPU      0.40s WALL (      74 calls)
+     s_psi        :      0.00s CPU      0.00s WALL (      74 calls)
+     g_psi        :      0.00s CPU      0.00s WALL (      44 calls)
+
+     Called by h_psi:
+     h_psi:calbec :      0.01s CPU      0.01s WALL (      74 calls)
+     vloc_psi     :      0.36s CPU      0.39s WALL (      74 calls)
+     add_vuspsi   :      0.00s CPU      0.00s WALL (      74 calls)
+
+     General routines
+     calbec       :      0.03s CPU      0.03s WALL (     110 calls)
+     fft          :      4.13s CPU      4.79s WALL (     271 calls)
+     ffts         :     45.17s CPU     52.88s WALL (   15349 calls)
+     fftw         :      0.36s CPU      0.38s WALL (     176 calls)
+     interpolate  :      0.66s CPU      0.72s WALL (      30 calls)
+
+     Parallel routines
+
+     PWSCF        :   1m22.86s CPU   1m32.18s WALL
+
+
+   This run was terminated on:  10:38:19  27May2026            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
